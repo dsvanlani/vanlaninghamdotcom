@@ -15,6 +15,16 @@ nav {
   width: auto;
 }
 
+.media {
+  background-color: white;
+  margin: 6px;
+  border-radius: 20px;
+}
+
+.media-body {
+  margin: 12px;
+}
+
 .review-card {
   max-height: 148px;
 }
@@ -57,6 +67,36 @@ nav a:hover {
 
 #search-row {
   margin-bottom: 10px;
+}
+
+#add-review-container {
+  background-color: white;
+  padding: 10px;
+}
+#add-review-container #form-column {
+  max-width: 868px;
+}
+#add-review-container input {
+  width: 100%;
+}
+
+#review-container {
+  background-color: white;
+  padding: 25px;
+  border-radius: 25px;
+}
+
+#comments-container {
+  margin-top: 30px;
+}
+
+blockquote {
+  font: 14px/22px normal helvetica, sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
 }
 
 /*# sourceMappingURL=style.css.map */

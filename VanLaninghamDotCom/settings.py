@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
     'reviews',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -123,3 +124,27 @@ STATICFILES_DIRS = ((os.path.join(BASE_DIR, 'static')),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar_CustomConfig': [
+            {'name': 'clipboard', 'items': ['Undo', 'Redo']},
+            {'name': 'yourcustomtools', 'items': [
+                'Preview',
+                'Maximize',
+            ]},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format']},
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', 'Blockquote']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert',
+             'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+        ],
+        'toolbar': 'CustomConfig',  # put selected toolbar config here
+        'tabSpaces': 4,
+    }
+}

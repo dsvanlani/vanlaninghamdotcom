@@ -13,9 +13,9 @@ function hideCommentRow() {
 function getCommentInfo() {
     const url = window.location.href
     const split = url.split('/')
-    const isbn = split[split.length-1]
+    const id = split[split.length-1]
 
-    parentReview = isbn
+    parentReview = id
     commenterName = document.querySelector('#commenter-name').value
     commenterEmail = document.querySelector('#commenter-email').value
     commentBody = document.querySelector('#comment-body').value

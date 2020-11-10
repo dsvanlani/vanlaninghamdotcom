@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-9" id="reviews-column">
             <div class="row">
-                <div class="col-6 text-nowrap">
+                <div class="col text-nowrap text-center">
                     <h4>Recent Book Reviews</h4>
                 </div>
 
@@ -22,20 +22,14 @@
 
                 <div class="row no-gutters">
                 {% for review in reviews %}
-                    <div class="col-md-6">
-                        <div class="card review-card">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="{{ review.thumbnail.url }}" class="card-img book-thumbnail" alt="{{ review.bookTitle }}">
-                                </div>
-                                <div class="col-9 text-right">
-                                    <div class="card-body">
-                                            <h5>{{ review.bookTitle }}</h5>
-                                            <p>by {{ review.bookAuthor }}</p>
-                                    </div>
-                                </div>
+                    <div class="col-md-6" class="review-column">
+                        <div class="media position-relative">
+                            <img src="{{ review.thumbnail.url }}" alt="{{ review.bookTitle }}" class="book-thumbnail">
+                            <div class="media-body">
+                                <h5>{{ review.bookTitle }}</h5>
+                                <p>by {{ review.bookAuthor }}</p>
                             </div>
-                            <a href="{% url 'home' %}reviews/{{ review.bookISBN }}" class="stretched-link"></a>
+                            <a href="{% url 'home' %}reviews/{{ review.id }}" class="stretched-link"></a>
                         </div>
                     </div>
                 {% endfor %}

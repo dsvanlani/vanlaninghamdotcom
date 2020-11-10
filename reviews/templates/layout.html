@@ -26,6 +26,11 @@
             <div class="nav-item">
               <a href="{% url 'allReviews' %}" class="nav-link">All Reviews</a>
             </div>
+              {% if request.user.is_authenticated %}
+            <div class="nav-item">
+                <a href="{% url 'addReview' %}" class="nav-link">Add Review</a>
+            </div>
+              {% endif %}
           </ul>
 
           <div class="navbar-nav ml-auto">

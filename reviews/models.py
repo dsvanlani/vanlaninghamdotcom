@@ -1,15 +1,15 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Review(models.Model):
 
-    bookISBN = models.CharField(max_length=13, null=False)
-    content = models.FileField(null=False, upload_to='reviews/')
+    body = RichTextField(blank=True, null=True)
     bookTitle = models.CharField(max_length=256, null=False)
     bookAuthor = models.CharField(max_length=64, null=False)
     thumbnail = models.ImageField(null=True, upload_to='images/')
 
     def __str__(self):
-        return f'{self.bookTitle} - {self.bookISBN}'
+        return f'{self.bookTitle}'
 
 class Comment(models.Model):
 

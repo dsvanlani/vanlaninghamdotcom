@@ -31,18 +31,12 @@ def home(request):
     return render(request, 'reviews/home.html', context)
 
 
-def reviewPage(request, bookISBN):
-    review = Review.objects.get(bookISBN=bookISBN)
-    comments = Comment.objects.all().filter(parentReview=Review.objects.get(bookISBN=bookISBN)).order_by('-timestamp')
-
-    # Read the file
-    f = review.content
-    content = f.read()
-    f.close()
+def reviewPage(request, id):
+    review = Review.objects.get(id=id)
+    comments = Comment.objects.all().filter(parentReview=Review.objects.get(id=id)).order_by('-timestamp')
 
     context = {
         "review": review,
-        "content": content,
         "comments": comments
     }
 
@@ -82,7 +76,7 @@ def postComment(request):
                 commenterName=comment['commenterName'],
                 commenterEmail=comment['commenterEmail'],
                 commentBody=comment['commentBody'],
-                parentReview=Review.objects.get(bookISBN=comment['parentReview'])
+                parentReview=Review.objects.get(id=comment['parentReview'])
             )
             newComment.save()
             return JsonResponse({"message": "success"})

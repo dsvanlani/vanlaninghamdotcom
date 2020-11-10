@@ -5,32 +5,32 @@
 <script src="{% static 'javascript/reviewPage.js' %}"></script>
 {% endblock %}
 {% block body %}
-<div class="container">
 
+<div class="container" id="review-container">
     <!-- Review Content Display -->
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col">
             <h3>{{ review.bookTitle }}</h3>
             <p>by {{ review.bookAuthor }}</p>
+            {% if request.user.is_authenticated %}
+            <a class="float-right" href="{% url 'admin:reviews_review_change' review.id %}">Edit</a>
+            {% endif %}
         </div>
         <div class="col-md-2"></div>
     </div>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col" id="review-content-column">
-            {{ content | safe }}
+            {{ review.body | safe }}
         </div>
         <div class="col-md-2"></div>
     </div>
     <!-- END REVIEW -->
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col"><hr></div>
-        <div class="col-md-2"></div>
-    </div>
+</div>
 
     <!--- Comments Section -->
+<div class="container" id="comments-container">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col">
@@ -56,6 +56,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col">
+            <!-- TODO Make this http request not a fetch request -->
             <form id="new-comment-form" class="form-inline">
                 <div class="form-group">
                     <input type="text" id="commenter-name" placeholder="Display Name" required>
