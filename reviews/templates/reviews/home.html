@@ -1,0 +1,47 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}VanLaningham.com | Home{% endblock %}
+{% block body %}
+{% load static %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-3" id="bio-column">
+            <img src="{% static 'images/main-picture.png' %}" alt="Nathan VanLaningham" id="portrait-img">
+            <p>Welcome to <i>VanLaningham.com</i>, my home on the web
+                where I host and manage my personal book reviews.
+              </p>
+        </div>
+        <div class="col-md-9" id="reviews-column">
+            <div class="row">
+                <div class="col-6 text-nowrap">
+                    <h4>Recent Book Reviews</h4>
+                </div>
+
+            </div>
+
+                <div class="row no-gutters">
+                {% for review in reviews %}
+                    <div class="col-md-6">
+                        <div class="card review-card">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="{{ review.thumbnail.url }}" class="card-img book-thumbnail" alt="{{ review.bookTitle }}">
+                                </div>
+                                <div class="col-9 text-right">
+                                    <div class="card-body">
+                                            <h5>{{ review.bookTitle }}</h5>
+                                            <p>by {{ review.bookAuthor }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{% url 'home' %}reviews/{{ review.bookISBN }}" class="stretched-link"></a>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

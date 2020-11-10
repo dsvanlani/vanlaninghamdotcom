@@ -1,0 +1,61 @@
+#portrait-img {
+    width: 100%;
+    }
+
+body {
+    background-color: #f5f2eb;
+    }
+
+nav {
+    margin-bottom: 15px;
+    }
+
+.book-thumbnail {
+    height: 148px;
+    width: auto;
+    }
+.review-card {
+    max-height: 148px;
+    }
+
+#bio-column {
+    max-width: 400px;
+    }
+
+#reviews-content-column {
+    max-width: 400px;
+    }
+
+#new-comment-row {
+    display: none;
+    }
+
+nav {
+    a {
+    color: white
+        }
+    a:hover {
+    color: grey;
+    }
+    }
+
+.pill {
+    border-style: solid;
+    border-radius: 16px;
+    padding: 5px;
+
+    a, a:hover {
+        color: black;
+      }
+    }
+
+#page-search-input {
+    width: 75%;
+    }
+#page-search-submit {
+    width: 25%;
+    }
+
+#search-row {
+    margin-bottom: 10px;
+    }

@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}VanLaningham.com | Add Review{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Add Article</h3>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if message %}
+                    {{ message }}
+                {% endif %}
+                <table>
+                    {% for field in form %}
+                    <tr>
+                        <th>{{ field.label_tag }}</th>
+                        <td>{{ field}}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <th>Doc Type:</th>
+                        <td>
+                            <select id="docType" name="docType">
+                                <option>HTML</option>
+                                <option>docx</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
