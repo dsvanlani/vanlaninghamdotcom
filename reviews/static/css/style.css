@@ -71,8 +71,9 @@ nav {
   animation-duration: 0.5s;
 }
 
-#reviews-content-column {
-  max-width: 400px;
+#review-content-column img {
+  display: block;
+  margin: auto;
 }
 
 #new-comment-row {
