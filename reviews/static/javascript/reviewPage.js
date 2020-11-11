@@ -39,8 +39,8 @@ function getCommentInfo() {
 function postComment() {
 
     const comment = getCommentInfo()  // Returns false if fields are filled out
-    if (comment) {
 
+    if (comment) {
           fetch('/post-comment/', {
             method: "POST",
             body: JSON.stringify({comment: comment})
@@ -51,7 +51,7 @@ function postComment() {
             location.reload()
           })
     } else {
-        alert("Please fill out all required fields")
+        alert("Display name and comment body are required fields.")
     }
 
 }
