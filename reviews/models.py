@@ -18,3 +18,6 @@ class Comment(models.Model):
     commentBody = models.TextField(null=False)
     parentReview = models.ForeignKey('review', on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.commenterName} | {self.commenterName}"

@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block title %}VanLaningham.com | All Reviews{% endblock%}
 {% block body %}
-<div class="container-fluid">
+<div class="container-fluid main-container">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col">
@@ -33,23 +33,34 @@
         <div class="col">
             <form class="form form-inline" action="{% url 'allReviews' %}">
                 <input name="search" type="text" class="form-control" aria-label="search" placeholder="Search for Author or Title" id="page-search-input">
-                <button type="submit" class="form-control btn-outline-secondary" id="page-search-submit">Search</button>
+                <button type="submit" class="form-control btn-primary" id="page-search-submit">Search</button>
             </form>
         </div>
         <div class="col-md-2"></div>
     </div>
     <!-- END SEARCH BAR -->
+    <!-- Reviews listed below -->
+    {% if reviews %}
     {% for review in reviews %}
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col">
-            <div class="card">
-                <div class="card-body">{{ review.bookTitle }} by {{ review.bookAuthor }}</div>
+            <div class="card list-card">
+                <div class="card-body"><b>{{ review.bookTitle }}</b> by {{ review.bookAuthor }}</div>
                 <a href="{% url 'home' %}reviews/{{ review.id }}" class="stretched-link"></a>
             </div>
         </div>
         <div class="col-md-2"></div>
     </div>
     {% endfor %}
+    {% else %}
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col">
+            <p>No reviews matching search "{{ search }}".</p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

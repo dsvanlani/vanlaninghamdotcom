@@ -1,5 +1,31 @@
-#portrait-img {
-    width: 100%;
+// Colors:
+$light-grey: #dee0df;
+
+// Animations:
+
+@keyframes list-card-animation {
+    from {
+        background-color:white;
+    }
+    to {
+        background-color: $light-grey;
+    }
+}
+
+//  Styling
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    box-sizing: border-box;
+    min-height: 90%;
+    margin-bottom: 0;
+    position: relative;
     }
 
 body {
@@ -22,14 +48,35 @@ nav {
     }
 
 .media-body {
-    margin: 12px;
+    margin-top: 40px;
     }
 .review-card {
     max-height: 148px;
     }
 
+.media:hover {
+    background-color: $light-grey;
+    animation-name: list-card-animation;
+    animation-duration: .5s;
+    }
 #bio-column {
     max-width: 400px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 25px;
+
+    #portrait-img {
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 25px;
+
+    }
+    }
+
+.list-card:hover {
+    background-color: $light-grey;
+    animation-name: list-card-animation;
+    animation-duration: .5s;
     }
 
 #reviews-content-column {
@@ -100,3 +147,9 @@ blockquote {
   padding-left: 15px;
   border-left: 3px solid #ccc;
 }
+
+footer {
+    min-height: 100px;
+    padding-top: 40px;
+    background-color: $light-grey;
+    }

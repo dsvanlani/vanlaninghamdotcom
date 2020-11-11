@@ -4,12 +4,12 @@
 {% block title %}VanLaningham.com | Home{% endblock %}
 {% block body %}
 {% load static %}
-<div class="container-fluid">
+<div class="container-fluid main-container">
     <div class="row justify-content-center">
-        <div class="col-md-3" id="bio-column">
+        <div class="col-md-3 text-center" id="bio-column">
             <img src="{% static 'images/main-picture.png' %}" alt="Nathan VanLaningham" id="portrait-img">
-            <p>Welcome to <i>VanLaningham.com</i>, my home on the web
-                where I host and manage my personal book reviews.
+            <p class="text-muted"><small>pictured: Nathan VanLaningham</small></p>
+            <p><b><i>"Dressed for a pandemic."</i></b>
               </p>
         </div>
         <div class="col-md-9" id="reviews-column">
@@ -22,7 +22,7 @@
 
                 <div class="row no-gutters">
                 {% for review in reviews %}
-                    <div class="col-md-6" class="review-column">
+                    <div class="col-md-6 text-center review-column">
                         <div class="media position-relative">
                             <img src="{{ review.thumbnail.url }}" alt="{{ review.bookTitle }}" class="book-thumbnail">
                             <div class="media-body">
@@ -36,6 +36,5 @@
                 </div>
         </div>
     </div>
-
 </div>
 {% endblock %}

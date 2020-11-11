@@ -20,6 +20,12 @@ function getCommentInfo() {
     commenterEmail = document.querySelector('#commenter-email').value
     commentBody = document.querySelector('#comment-body').value
 
+    // Make sure all required fields are completed
+
+    if (commenterName.length == 0 || commentBody.length == 0) {
+        return false
+    }
+
     comment = {
         parentReview: parentReview,
         commenterName: commenterName,
@@ -32,17 +38,22 @@ function getCommentInfo() {
 
 function postComment() {
 
-  const comment = getCommentInfo()
+    const comment = getCommentInfo()  // Returns false if fields are filled out
+    if (comment) {
 
-  fetch('/post-comment/', {
-    method: "POST",
-    body: JSON.stringify({comment: comment})
-  })
-  .then(response => response.json())
-  .then(result => {
-    // TODO: Append the comment
-    location.reload()
-  })
+          fetch('/post-comment/', {
+            method: "POST",
+            body: JSON.stringify({comment: comment})
+          })
+          .then(response => response.json())
+          .then(result => {
+            // TODO: Append the comment
+            location.reload()
+          })
+    } else {
+        alert("Please fill out all required fields")
+    }
+
 }
 
 // DOM Content Loaded Configuration
