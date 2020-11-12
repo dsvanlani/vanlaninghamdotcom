@@ -20,13 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5-%ibi^v=a3oa%n0+d35ytrd&jzk4lxvw=3!laqul$u$+g9x79'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'vanlaninghamdotcom.herokuapp.com']
-
 
 # Application definition
 
@@ -80,11 +79,11 @@ WSGI_APPLICATION = 'VanLaninghamDotCom.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7rmgp7f0g1t4k',
-        'HOST': "ec2-54-82-208-124.compute-1.amazonaws.com",
+        'NAME': os.getenv('DATABASE_NAME'),
+        'HOST': os.getenv('DATABASE_HOST'),
         'PORT': 5432,
-        'USER': "lmpjdarmuwpcgc",
-        'PASSWORD': "1e93abe054354e6bdffdf7220dbfc8a3b0cd5f791de86b10ad55007a1176caf6",
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
     }
 }
 
