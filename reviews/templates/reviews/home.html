@@ -24,7 +24,7 @@
                 {% for review in reviews %}
                     <div class="col-md-6 text-center review-column">
                         <div class="media position-relative">
-                            <img src="{{ review.thumbnail.url }}" alt="{{ review.bookTitle }}" class="book-thumbnail">
+                            <img src="https://vanlaninghamdotcom.s3.amazonaws.com/{{ review.thumbnail }}" alt="{{ review.bookTitle }}" class="book-thumbnail">
                             <div class="media-body">
                                 <h5>{{ review.bookTitle }}</h5>
                                 <p>by {{ review.bookAuthor }}</p>

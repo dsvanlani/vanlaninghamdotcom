@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'vanlaninghamdotcom.herokuapp.com']
 INSTALLED_APPS = [
     'ckeditor',
     'reviews',
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,6 +152,7 @@ CKEDITOR_CONFIGS = {
         'tabSpaces': 4,
     }
 }
+
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_KEY_ACCESS = os.getenv('AWS_SECRET_KEY_ACCESS')
 
