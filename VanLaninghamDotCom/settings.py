@@ -127,7 +127,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -152,3 +151,9 @@ CKEDITOR_CONFIGS = {
         'tabSpaces': 4,
     }
 }
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_KEY_ACCESS = os.getenv('AWS_SECRET_KEY_ACCESS')
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_STORAGE_BUCKET_NAME = 'vanlaninghamdotcom'
+AWS_S3_REGION_NAME = 'us-east-2'
