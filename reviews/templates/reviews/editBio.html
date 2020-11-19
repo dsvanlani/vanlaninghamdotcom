@@ -27,6 +27,22 @@
                         </form>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col"><hr></div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>Bio Paragraph</h4>
+                        <p>Current:</p>
+                        <p>{{ bio.bioParagraph.text | safe}}</p>
+                        <form class="form" method="POST" action="{% url 'changeBioParagraph' %}">
+                            {% csrf_token %}
+                            {{ paragraphForm.media }}
+                            {{ paragraphForm.as_p }}
+                            <input type="submit" class="btn btn-primary">
+                        </form>
+                    </div>
+                </div>
             </div>
         <div class="col-md-2"></div>
     </div>

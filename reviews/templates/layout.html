@@ -27,9 +27,15 @@
               <a href="{% url 'allReviews' %}" class="nav-link">All Reviews</a>
             </div>
               {% if request.user.is_authenticated %}
-            <div class="nav-item">
-                <a href="{% url 'addReview' %}" class="nav-link">Add Review</a>
-            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="adminDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="adminDropDown">
+                  <a class="dropdown-item" href="{% url 'addReview' %}">+New Review</a>
+                  <a class="dropdown-item" href="{% url 'editBio' %}">Edit Bio</a>
+                </div>
+                    </div>
               {% endif %}
           </ul>
 

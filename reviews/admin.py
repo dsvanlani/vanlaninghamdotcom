@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Review)
 admin.site.register(Comment)
 admin.site.register(BioPicture)
+admin.site.register(BioParagraph)

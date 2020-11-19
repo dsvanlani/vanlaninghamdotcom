@@ -1,5 +1,5 @@
 from django import forms
-from .models import Review, BioPicture
+from .models import Review, BioPicture, BioParagraph
 
 
 
@@ -22,4 +22,12 @@ class ChangeBioPictureForm(forms.ModelForm):
             'image',
             'altText',
             'caption',
+        ]
+
+class ChangeBioParagraphForm(forms.ModelForm):
+
+    class Meta:
+        model = BioParagraph
+        fields = [
+            'text'
         ]

@@ -10,7 +10,8 @@ urlpatterns = [
     path('post-comment/', views.postComment),
     path('allReviews', views.allReviews, name='allReviews'),
     path('editBio', views.editBio, name='editBio'),
-    path('editBio/changePicture', views.changePicture, name="changePicture")
+    path('editBio/changePicture', views.changePicture, name="changePicture"),
+    path('editBio/changeBioParagraph', views.changeBioParagraph, name="changeBioParagraph")
 ]
 
 if settings.DEBUG:

@@ -4,16 +4,19 @@ from django.http import JsonResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import *
-from .forms import AddReviewForm, ChangeBioPictureForm
+from .forms import AddReviewForm, ChangeBioPictureForm, ChangeBioParagraphForm
+
 
 # Custom Functions
 
 def getBio():
 
     bioPicture = BioPicture.objects.order_by('-id').first()
+    bioParagraph = BioParagraph.objects.order_by('-id').first()
 
     bio = {
-        "bioPicture": bioPicture
+        "bioPicture": bioPicture,
+        "bioParagraph": bioParagraph
     }
 
     return bio
@@ -108,9 +111,11 @@ def allReviews(request):
 @login_required
 def editBio(request):
     pictureForm = ChangeBioPictureForm()
+    paragraphForm = ChangeBioParagraphForm()
     context = {
         "bio": getBio(),
-        "pictureForm": pictureForm
+        "pictureForm": pictureForm,
+        "paragraphForm": paragraphForm,
     }
 
     return render(request, 'reviews/editBio.html', context)
@@ -121,9 +126,12 @@ def changePicture(request):
         form = ChangeBioPictureForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('editBio')
-        else:
-            return redirect('editBio')
 
-    else:
-        return redirect('home')
+    return redirect('editBio')
+
+def changeBioParagraph(request):
+    if request.method == "POST":
+        form = ChangeBioParagraphForm(request.POST)
+        if form.is_valid():
+            form.save()
+    return redirect('editBio')
