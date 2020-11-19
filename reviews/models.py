@@ -21,3 +21,18 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.commenterName} | {self.commentBody}"
+
+
+class BioPicture(models.Model):
+
+    image = models.ImageField(upload_to='images/', null=True)
+    altText = models.CharField(max_length=128)
+    caption = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.altText
+
+
+class BioParagraph(models.Model):
+
+    text = RichTextField(blank=True, null=True)

@@ -8,7 +8,9 @@ urlpatterns = [
     path('reviews/<str:id>', views.reviewPage, name="reviewPage"),
     path('addReview/', views.addReview, name="addReview"),
     path('post-comment/', views.postComment),
-    path('allReviews', views.allReviews, name='allReviews')
+    path('allReviews', views.allReviews, name='allReviews'),
+    path('editBio', views.editBio, name='editBio'),
+    path('editBio/changePicture', views.changePicture, name="changePicture")
 ]
 
 if settings.DEBUG:

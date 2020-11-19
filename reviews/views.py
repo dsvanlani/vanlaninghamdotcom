@@ -1,14 +1,22 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import *
-from .forms import AddReviewForm
-
+from .forms import AddReviewForm, ChangeBioPictureForm
 
 # Custom Functions
 
+def getBio():
+
+    bioPicture = BioPicture.objects.order_by('-id').first()
+
+    bio = {
+        "bioPicture": bioPicture
+    }
+
+    return bio
 # Takes in a string as a parameter and looks
 # for matching results in the Author and Title columns
 
@@ -45,7 +53,6 @@ def reviewPage(request, id):
 
 @login_required
 def addReview(request):
-    # TODO make this handle docx files
     if request.method == "POST":
         form = AddReviewForm(request.POST, request.FILES)  # Gets the form data
         if form.is_valid():
@@ -97,3 +104,26 @@ def allReviews(request):
         context = {"reviews": reviews}
 
     return render(request, 'reviews/allReviews.html', context)
+
+@login_required
+def editBio(request):
+    pictureForm = ChangeBioPictureForm()
+    context = {
+        "bio": getBio(),
+        "pictureForm": pictureForm
+    }
+
+    return render(request, 'reviews/editBio.html', context)
+
+@login_required
+def changePicture(request):
+    if request.method == "POST":
+        form = ChangeBioPictureForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('editBio')
+        else:
+            return redirect('editBio')
+
+    else:
+        return redirect('home')
