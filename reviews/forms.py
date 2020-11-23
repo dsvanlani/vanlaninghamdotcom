@@ -9,6 +9,7 @@ class AddReviewForm(forms.ModelForm):
         fields = [
             'bookTitle',
             'bookAuthor',
+            'bookAuthorLastName',
             'thumbnail',
             'body'
         ]

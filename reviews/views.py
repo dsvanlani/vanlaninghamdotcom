@@ -35,7 +35,7 @@ def getSearchResults(string):
 
 def home(request):
     recentReviews = Review.objects.all().order_by('-id')[:6]
-    allReviews = Review.objects.all()
+    allReviews = Review.objects.all().order_by('bookAuthorLastName')
 
     context = {
         "recentReviews": recentReviews,
@@ -99,14 +99,14 @@ def postComment(request):
 
 def allReviews(request):
     try:
-        reviews = getSearchResults(request.GET['search'])
+        reviews = getSearchResults(request.GET['search']).order_by('bookAuthorLastName')
         search = request.GET['search']
         context = {
             "reviews": reviews,
             "search": search,
         }
     except KeyError:
-        reviews = Review.objects.all()
+        reviews = Review.objects.all().order_by('bookAuthorLastName')
         context = {"reviews": reviews}
 
     return render(request, 'reviews/allReviews.html', context)

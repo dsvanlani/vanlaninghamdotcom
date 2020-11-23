@@ -6,6 +6,7 @@ class Review(models.Model):
     body = RichTextField(blank=True, null=True)
     bookTitle = models.CharField(max_length=256, null=False)
     bookAuthor = models.CharField(max_length=64, null=False)
+    bookAuthorLastName = models.CharField(max_length=64, null=False, default='')
     thumbnail = models.ImageField(null=True, upload_to='images/')
 
     def __str__(self):

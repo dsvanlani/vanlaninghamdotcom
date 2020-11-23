@@ -23,9 +23,6 @@
 
         <div class="collapse navbar-collapse" id="navbar-links">
           <ul class="navbar-nav">
-            <div class="nav-item">
-              <a href="{% url 'allReviews' %}" class="nav-link">All Reviews</a>
-            </div>
               {% if request.user.is_authenticated %}
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="adminDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
