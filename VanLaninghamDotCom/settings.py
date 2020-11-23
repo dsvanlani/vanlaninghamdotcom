@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from VanLaninghamDotCom import envvars
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = envvars.SECRET_KEY
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'vanlaninghamdotcom.herokuapp.com', 'www.vanlaningham.com']
 
@@ -80,11 +79,11 @@ WSGI_APPLICATION = 'VanLaninghamDotCom.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': envvars.DATABASE_NAME,
-        'HOST': envvars.DATABASE_HOST,
+        'NAME': os.getenv("DATABASE_NAME"),
+        'HOST': os.getenv("DATABASE_HOST"),
         'PORT': 5432,
-        'USER': envvars.DATABASE_USER,
-        'PASSWORD': envvars.DATABASE_PASSWORD,
+        'USER': os.getenv("DATABASE_USER"),
+        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
     }
 }
 
@@ -153,9 +152,9 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-AWS_ACCESS_KEY_ID = envvars.AWS_ACCESS_KEY_ID
-AWS_SECRET_KEY_ACCESS = envvars.AWS_SECRET_ACCESS_KEY
-AWS_SECRET_ACCESS_KEY = envvars.AWS_SECRET_ACCESS_KEY
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_KEY_ACCESS = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_STORAGE_BUCKET_NAME = 'vanlaninghamdotcom'
