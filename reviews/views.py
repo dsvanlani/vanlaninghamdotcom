@@ -34,11 +34,13 @@ def getSearchResults(string):
 
 
 def home(request):
-    reviews = Review.objects.all().order_by('-id')[:6]
+    recentReviews = Review.objects.all().order_by('-id')[:6]
+    allReviews = Review.objects.all()
 
     context = {
-        "reviews": reviews,
-        "bio": getBio()
+        "recentReviews": recentReviews,
+        "allReviews": allReviews,
+        "bio": getBio(),
     }
     return render(request, 'reviews/home.html', context)
 
