@@ -47,7 +47,6 @@ function postComment() {
           })
           .then(response => response.json())
           .then(result => {
-            // TODO: Append the comment
             location.reload()
           })
     } else {

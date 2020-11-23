@@ -6,12 +6,16 @@
 {% load static %}
 <div class="container-fluid main-container">
     <div class="row justify-content-center">
+        <!--  BIO Column -->
         <div class="col-md-3 text-center" id="bio-column">
-            <img src="{% static 'images/main-picture.png' %}" alt="Nathan VanLaningham" id="portrait-img">
-            <p class="text-muted"><small>pictured: Nathan VanLaningham</small></p>
-            <p><b><i>"Dressed for a pandemic."</i></b>
-              </p>
+            <img src="https://vanlaninghamdotcom.s3.amazonaws.com/{{ bio.bioPicture.image}}" alt="{{ bio.bioPicture.altText}}" id="portrait-img">
+            <p class="text-muted"><small>{{ bio.bioPicture.caption }}</small></p>
+            {{ bio.bioParagraph.text | safe }}
+            {% if request.user.is_authenticated %}
+            <a class="btn btn-link" href="{% url 'editBio' %}">edit</a>
+            {% endif %}
         </div>
+        <!-- End Bio Column -->
         <div class="col-md-9" id="reviews-column">
             <div class="row">
                 <div class="col text-nowrap text-center">

@@ -37,7 +37,8 @@ def home(request):
     reviews = Review.objects.all().order_by('-id')[:6]
 
     context = {
-        "reviews": reviews
+        "reviews": reviews,
+        "bio": getBio()
     }
     return render(request, 'reviews/home.html', context)
 
