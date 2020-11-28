@@ -32,6 +32,9 @@
             <div class="row">
                 <div class="col text-nowrap text-center">
                     <h4>Book Reviews</h4>
+                    {% if request.user.is_authenticated %}
+                    <a class="btn btn-link" href="{% url 'addReview' %}">Add Review</a>
+                    {% endif %}
                 </div>
 
             </div>
