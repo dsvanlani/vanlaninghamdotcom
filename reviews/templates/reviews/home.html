@@ -8,24 +8,36 @@
     <div class="row justify-content-center">
         <!--  BIO Column -->
         <div class="col-md-3 text-center" id="bio-column">
-            <img src="https://vanlaninghamdotcom.s3.amazonaws.com/{{ bio.bioPicture.image}}" alt="{{ bio.bioPicture.altText}}" id="portrait-img">
-            <p class="text-muted"><small>{{ bio.bioPicture.caption }}</small></p>
-            {{ bio.bioParagraph.text | safe }}
-            {% if request.user.is_authenticated %}
-            <a class="btn btn-link" href="{% url 'editBio' %}">edit</a>
-            {% endif %}
+            <div id="bio-box">
+                <img src="https://vanlaninghamdotcom.s3.amazonaws.com/{{ bio.bioPicture.image}}" alt="{{ bio.bioPicture.altText}}" id="portrait-img">
+                <p class="text-muted"><small>{{ bio.bioPicture.caption }}</small></p>
+                {{ bio.bioParagraph.text | safe }}
+                {% if request.user.is_authenticated %}
+                <a class="btn btn-link" href="{% url 'editBio' %}">edit</a>
+                {% endif %}
+            </div>
+            <br>
+            <div id="bio-box">
+                <h5>Search Book Reviews</h5>
+                <form class="form" action="{% url 'allReviews' %}" method="GET" aria-label="search">
+                    {% csrf_token %}
+                    <input class="form-control" type="text" name="search" placeholder="Search by author or title">
+                    <input class="form-control btn btn-primary" type="submit">
+                </form>
+            </div>
         </div>
         <!-- End Bio Column -->
+        <!-- Reviews Column -->
         <div class="col-md-9" id="reviews-column">
             <div class="row">
                 <div class="col text-nowrap text-center">
-                    <h4>Recent Book Reviews</h4>
+                    <h4>Book Reviews</h4>
                 </div>
 
             </div>
 
                 <div class="row no-gutters">
-                {% for review in recentReviews %}
+                {% for review in allReviews %}
                     <div class="col-md-6 text-center review-column">
                         <div class="media position-relative">
                             <img src="https://vanlaninghamdotcom.s3.amazonaws.com/{{ review.thumbnail }}" alt="{{ review.bookTitle }}" class="book-thumbnail">
@@ -39,34 +51,7 @@
                 {% endfor %}
                 </div>
         </div>
+        <!-- End Reviews Column -->
     </div>
-</div>
-<div class="container">
-    <div class="row" style="height:30px;"></div> <!-- Just a Spacer Row -->
-    <!-- All Book Review Table Row -->
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col text-center">
-            <h4>All Book Reviews</h4>
-        </div>
-    </div>
-    <div class="row no-gutters">
-        <div class="col-md-3"></div>
-        <div class="col bg-light">
-            <table class="table table-light table-striped">
-                <tr>
-                    <th>Book Title</th>
-                    <th>Author</th>
-                </tr>
-                {% for review in allReviews %}
-                <tr>
-                    <td><a href="{% url 'home' %}reviews/{{ review.id }}">{{ review.bookTitle }}</a></td>
-                    <td>{{ review.bookAuthor }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
-    </div>
-    <!-- END Table Row -->
 </div>
 {% endblock %}

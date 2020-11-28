@@ -55,11 +55,14 @@ nav {
 
 #bio-column {
   max-width: 400px;
+}
+
+#bio-box {
   background-color: white;
   padding: 10px;
   border-radius: 25px;
 }
-#bio-column #portrait-img {
+#bio-box #portrait-img {
   width: 100%;
   margin-bottom: 5px;
   border-radius: 25px;
@@ -81,11 +84,14 @@ nav {
   display: none;
 }
 
-nav a {
-  color: white;
+header {
+  margin-bottom: 15px;
 }
-nav a:hover {
-  color: grey;
+header h4 {
+  margin-top: 5px;
+}
+header h4, header h6 {
+  color: white;
 }
 
 .pill {
