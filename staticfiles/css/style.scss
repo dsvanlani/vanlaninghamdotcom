@@ -59,8 +59,12 @@ nav {
     animation-name: list-card-animation;
     animation-duration: .5s;
     }
+
 #bio-column {
     max-width: 400px;
+    }
+
+#bio-box {
     background-color: white;
     padding: 10px;
     border-radius: 25px;
@@ -69,7 +73,6 @@ nav {
     width: 100%;
     margin-bottom: 5px;
     border-radius: 25px;
-
     }
     }
 
@@ -87,19 +90,20 @@ nav {
     }
     }
 
+
 #new-comment-row {
     display: none;
     }
 
-nav {
-    a {
-    color: white
+header {
+    h4 {
+        margin-top: 5px;
         }
-    a:hover {
-    color: grey;
+    h4, h6 {
+        color: white;
+        }
+    margin-bottom: 15px;
     }
-    }
-
 .pill {
     border-style: solid;
     border-radius: 16px;

@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- FAVICON -->
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- My CSS -->
@@ -15,37 +18,16 @@
     {% block script %}{% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'home' %}">VanLaningham.com</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar-links">
-          <ul class="navbar-nav">
-              {% if request.user.is_authenticated %}
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="adminDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Admin
-                </a>
-                <div class="dropdown-menu" aria-labelledby="adminDropDown">
-                  <a class="dropdown-item" href="{% url 'addReview' %}">+New Review</a>
-                  <a class="dropdown-item" href="{% url 'editBio' %}">Edit Bio</a>
-                </div>
-                    </div>
-              {% endif %}
-          </ul>
-
-          <div class="navbar-nav ml-auto">
-              <form class="form-inline" action="{% url 'allReviews' %}">
-                <input name="search" type="text" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="search">
-                  <button type="submit" class="form-control btn btn-outline-secondary">Go</button>
-              </form>
+  <header>
+      <div class="container-fluid full-width bg-dark">
+          <div class="row no-gutters">
+              <div class="col text-center">
+                  <h4><u>Nathan VanLaningham</u></h4>
+                  <h6>vanlaningham.com</h6>
+              </div>
           </div>
-
-
-        </div>
-    </nav>
+      </div>
+  </header>
   {% block body %}{% endblock %}
     <footer>
         <div class="container-fluid full-width">
