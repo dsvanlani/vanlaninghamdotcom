@@ -10,6 +10,7 @@
             {% if message %}
             <div class="alert alert-primary" role="alert">Successfully added article.</div>
             {% endif %}
+            <a class="btn btn-link" href="{% url 'home' %}">Home</a> > <a class="btn btn-link" href="{% url 'addReview' %}">Add Review</a>
             <h3>Add Article</h3>
             <form method="post" enctype="multipart/form-data" class="form float-center">
                 {% csrf_token %}
