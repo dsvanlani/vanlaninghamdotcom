@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block title %}VanLaningham.com | Login{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <div id="login-box">
+                <h2>Login</h2>
+                {% if form.errors %}
+                <p class="alert-danger">Username or Password did not match</p>
+                {% endif %}
+                <form class="form" method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <input class="form-control" type="text" placeholder="Username" name="username">
+                    <input class="form-control" type="password" placeholder="Password" name="password">
+                    <input class="form-control btn btn-primary" type="submit">
+                    <input type="hidden" name="next" value="{% url 'home' %}">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
