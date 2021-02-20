@@ -30,9 +30,7 @@ def getSearchResults(string):
     return reviews
 
 
-# Views
-
-
+# Review Relevant Views
 def home(request):
     recentReviews = Review.objects.all().order_by('-id')[:6]
     allReviews = Review.objects.all().order_by('bookAuthorLastName')
