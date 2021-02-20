@@ -155,4 +155,16 @@ footer {
   width: 100%;
 }
 
+#login-box {
+  background-color: white;
+  max-width: 400px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 35%;
+}
+#login-box input {
+  margin-top: 2rem;
+}
+
 /*# sourceMappingURL=style.css.map */
