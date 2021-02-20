@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'vanlaninghamdotcom.herokuapp.com', 'ww
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'ckeditor',
     'reviews',
     'storages',
