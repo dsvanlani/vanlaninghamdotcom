@@ -4,7 +4,7 @@ from django.http import JsonResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import *
-from .forms import AddReviewForm, ChangeBioPictureForm, ChangeBioParagraphForm
+from .forms import AddReviewForm, ChangeBioPictureForm, ChangeBioParagraphForm, AddArticleForm
 
 
 # Custom Functions
@@ -61,18 +61,47 @@ def addReview(request):
         form = AddReviewForm(request.POST, request.FILES)  # Gets the form data
         if form.is_valid():
             form.save()
-            message = "success"
+            message = "Successfully created article."
+            error = ""
         else:
-            message = "failed"
+            message = ""
+            error = "Unable to create article"
+    
     else:
         message = ""
-
+        error = ""
+    
     context = {
+        "error": error,
         "message": message,
         "form": AddReviewForm(),
     }
 
     return render(request, "reviews/addReview.html", context)
+
+@login_required
+def addArticle(request):
+    if request.method == "POST":
+        form = AddArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            message = "Successfully created article."
+            error = ""
+        else:
+            message = ""
+            error = "Unable to create article"
+    
+    else:
+        message = ""
+        error = ""
+    
+    context = {
+        "error": error,
+        "message": message,
+        "form": AddArticleForm(),
+    }
+    
+    return render(request, "articles/addArticle.html", context)
 
 
 @csrf_exempt
@@ -108,6 +137,22 @@ def allReviews(request):
         context = {"reviews": reviews}
 
     return render(request, 'reviews/allReviews.html', context)
+
+def articlesPage(request):
+ 
+    articles = Article.objects.all().order_by('articleTitle')
+    context = {"articles": articles}
+
+    return render(request, 'articles/articlesPage.html', context)
+
+def articlePage(request, id):
+    try:
+        article = Article.objects.get(id=id)
+    except:
+        return redirect('home')
+
+    context = { "article": article }
+    return render(request, 'articles/articlePage.html', context)
 
 @login_required
 def editBio(request):

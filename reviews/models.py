@@ -12,6 +12,15 @@ class Review(models.Model):
     def __str__(self):
         return f'{self.bookTitle}'
 
+class Article(models.Model):
+
+    body = RichTextField(blank=True, null=True)
+    articleTitle = models.CharField(max_length=256, null=False)
+
+    def __str__(self):
+        return f'{self.articleTitle}'
+    
+
 class Comment(models.Model):
 
     commenterName = models.CharField(max_length=64, null=False)

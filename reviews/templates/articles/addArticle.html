@@ -8,9 +8,9 @@
         <div class="col-md-2"></div>
         <div class="col" id="form-column">
             {% if message %}
-            <div class="alert alert-primary" role="alert">Successfully added Review.</div>
+            <div class="alert alert-primary" role="alert">{{ message }}</div>
             {% endif %}
-            <a class="btn btn-link" href="{% url 'home' %}">Home</a> > <a class="btn btn-link" href="{% url 'addReview' %}">Add Review</a>
+            <a class="btn btn-link" href="{% url 'home' %}">Home</a> > <a class="btn btn-link" href="{% url 'addReview' %}">New Article</a>
             <h3>Add Article</h3>
             <form method="post" enctype="multipart/form-data" class="form float-center">
                 {% csrf_token %}

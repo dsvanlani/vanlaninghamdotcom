@@ -20,16 +20,16 @@ body {
   position: relative;
 }
 
+.body-container {
+  min-height: calc(100% - 100px);
+}
+
 body {
   background-color: #f5f2eb;
 }
 
 nav {
   margin-bottom: 15px;
-}
-nav .navbar-logo {
-  max-height: 2.35rem;
-  width: auto;
 }
 
 .book-thumbnail {

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Review, BioPicture, BioParagraph
+from .models import *
 
 
 
@@ -14,6 +14,13 @@ class AddReviewForm(forms.ModelForm):
             'body'
         ]
 
+class AddArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article 
+        fields = [
+            'articleTitle',
+            'body',
+        ]
 
 class ChangeBioPictureForm(forms.ModelForm):
 
