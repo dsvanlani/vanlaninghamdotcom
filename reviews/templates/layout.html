@@ -19,14 +19,55 @@
   </head>
   <body>
   <header>
-      <div class="container-fluid full-width bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'images/logo_transparent.png' %}" class="navbar-logo">
+            VanLaningham.com</a>
+        
+            
+        
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'allReviews' %}">Book Reviews</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <div class="dropdown nav-item">
+                        <button 
+                        class="btn btn-link text-white ml-auto mr-3"
+                        type="button" id="userDrowDownMenuButton"
+                        data-toggle="dropdown" 
+                        aria-expanded="false">
+                    {{ user.username }}
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'addReview' %}">Add Review</a>
+                        <a class="dropdown-item" href="{% url 'editBio' %}">Edit Bio</a>
+                    </div>
+                    </div>
+                {% endif %}
+            </ul>
+        </div>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+    </nav>
+
+
+      <!-- <div class="container-fluid full-width bg-dark">
           <div class="row no-gutters">
               <div class="col text-center">
                   <h4><u>Nathan VanLaningham</u></h4>
                   <h6>vanlaningham.com</h6>
               </div>
           </div>
-      </div>
+      </div> -->
   </header>
   {% block body %}{% endblock %}
     <footer>

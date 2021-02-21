@@ -27,6 +27,10 @@ body {
 nav {
   margin-bottom: 15px;
 }
+nav .navbar-logo {
+  max-height: 2.35rem;
+  width: auto;
+}
 
 .book-thumbnail {
   height: 148px;

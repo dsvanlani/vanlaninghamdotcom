@@ -1,2 +1,5 @@
 **/envvars.py
 *.pyc
+*.env
+**/*.pyc
+*.sh
