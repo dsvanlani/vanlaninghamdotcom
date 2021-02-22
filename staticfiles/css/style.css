@@ -11,6 +11,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .main-container {
@@ -21,7 +22,7 @@ body {
 }
 
 .body-container {
-  min-height: calc(100% - 100px);
+  min-height: calc(100% - 162px);
 }
 
 body {
@@ -30,6 +31,10 @@ body {
 
 nav {
   margin-bottom: 15px;
+}
+nav .navbar-logo {
+  max-width: 2.26rem;
+  max-height: auto;
 }
 
 .book-thumbnail {
@@ -157,6 +162,18 @@ footer {
 
 #bio-container img {
   width: 100%;
+}
+
+#login-box {
+  background-color: white;
+  max-width: 400px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 35%;
+}
+#login-box input {
+  margin-top: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

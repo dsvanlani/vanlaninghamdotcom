@@ -5,3 +5,4 @@
 *.sh
 */venv
 venv
+__pycahce__

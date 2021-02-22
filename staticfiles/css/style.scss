@@ -19,6 +19,8 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+
+    overflow-x: hidden;
 }
 
 .main-container {
@@ -29,7 +31,8 @@ body {
     }
 
 .body-container {
-    min-height: calc(100% - 100px);
+
+    min-height: calc(100% - 162px);
 }
 
 body {
@@ -38,6 +41,11 @@ body {
 
 nav {
     margin-bottom: 15px;
+
+    .navbar-logo {
+        max-width: 2.26rem;
+        max-height: auto;
+        }
     }
 
 .book-thumbnail {
@@ -171,3 +179,19 @@ footer {
     width:100%;
         }
     }
+
+
+// LOGIN Page Styling
+
+#login-box {
+    background-color: white;
+    max-width: 400px;
+    padding:20px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 35%;
+
+    input {
+        margin-top: 2rem;
+        }
+}
